@@ -1,4 +1,4 @@
-import { db, StepOneSchema, StepTwoSchema } from "@/lib";
+import { db, StepTwoSchema } from "@/lib";
 import { currentUser } from "@clerk/nextjs/server";
 import { Frequency, SymptomName } from "@prisma/client";
 import { NextResponse } from "next/server";
