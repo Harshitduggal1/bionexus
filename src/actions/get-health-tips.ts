@@ -38,7 +38,7 @@ const generateTips = ({ symptoms, medications, user }: Props): string => {
         Based on this comprehensive patient profile, provide 10 extremely personalized, evidence-based health recommendations. These should be meticulously tailored to the patient's unique physiological characteristics, symptoms, and medication regimen. Your recommendations should reflect the absolute cutting edge of precision medicine and personalized healthcare.
 
         Consider the following in your analysis:
-        1. Potential gene-drug interactions based on the patient's likely genetic profile.
+        1. Potential gene-drug interactions as possible based on the patient's likely genetic profile as possible .
         2. Microbiome considerations given the patient's symptoms and medications.
         3. Chronobiology and how it might affect the patient's health and medication efficacy.
         4. Environmental factors that could be influencing the patient's health, based on global health trends.
