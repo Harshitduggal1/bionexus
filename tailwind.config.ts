@@ -15,7 +15,7 @@ const config = {
   prefix: "",
   theme: {
   	container: {
-  		center: 'true',
+  		center: true,
   		padding: '2rem',
   		screens: {
   			'2xl': '1400px'
@@ -198,11 +198,6 @@ const config = {
   				'100%': {
   					transform: 'rotate(360deg)'
   				}
-  			},
-  			'border-beam': {
-  				'100%': {
-  					'offset-distance': '100%'
-  				}
   			}
   		},
   		animation: {
@@ -219,8 +214,7 @@ const config = {
   			'flip': 'flip 6s infinite steps(2, end)',
   			'rotate': 'rotate 3s linear infinite both',
   			'caret-blink': 'caret-blink 1.25s ease-out infinite',
-  			'loading': 'loading 0.5s linear infinite',
-  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
+  			'loading': 'loading 0.5s linear infinite'
   		}
   	}
   },

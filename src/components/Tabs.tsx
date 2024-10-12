@@ -5,7 +5,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 
 import ai1 from "@/public/ai1.png";
-import ai2 from "@/public/ai2.png";
+import ai2 from "@/public/a12.png";
 
 interface TabData {
   [key: string]: { text: string; image: StaticImageData; href: string };
@@ -97,13 +97,13 @@ const Tabs: React.FC = () => {
   return (
     <div className="flex justify-center items-center bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 mt-16 p-4 min-h-screen font-sans">
       <motion.div
-        className="bg-white bg-opacity-10 shadow-2xl backdrop-blur-2xl backdrop-filter p-8 border border-white border-opacity-20 rounded-3xl w-full max-w-4xl overflow-hidden"
+        className="border-white bg-white bg-opacity-10 shadow-2xl backdrop-blur-2xl backdrop-filter p-8 border border-opacity-20 rounded-3xl w-full max-w-4xl overflow-hidden"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="mb-8 font-black text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"
+          className="bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mb-8 font-black text-5xl text-center text-transparent"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -148,7 +148,7 @@ const Tabs: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="border-t-2 border-b-2 border-white rounded-full w-12 h-12 animate-spin"></div>
+                <div className="border-white border-t-2 border-b-2 rounded-full w-12 h-12 animate-spin"></div>
               </motion.div>
             ) : (
               <motion.div
@@ -165,11 +165,11 @@ const Tabs: React.FC = () => {
                     src={tabData[activeTab].image}
                     alt={activeTab}
                     priority
-                    className="relative shadow-2xl mb-6 border border-white border-opacity-20 rounded-lg lg:rounded-2xl w-full object-cover"
+                    className="relative border-white shadow-2xl mb-6 border border-opacity-20 rounded-lg lg:rounded-2xl w-full object-cover"
                   />
                 </motion.div>
                 <motion.p
-                  className="text-lg text-white leading-relaxed mb-6"
+                  className="mb-6 text-lg text-white leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}

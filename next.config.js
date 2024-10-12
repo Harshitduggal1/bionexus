@@ -7,6 +7,10 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
+  experimental: {
+    appDir: true,
+  },
   webpack(config, { isServer }) {
     config.plugins.push( 
       new CopyPlugin({
@@ -21,7 +25,10 @@ const nextConfig = {
 
     if (!isServer) {
       config.resolve.fallback = {
+        ...config.resolve.fallback,
         fs: false,
+        net: false,
+        tls: false,
       };
     }
 
@@ -35,7 +42,8 @@ const nextConfig = {
         hostname: "img.clerk.com",
         protocol: "https",
       }
-    ]
+    ],
+    unoptimized: true,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

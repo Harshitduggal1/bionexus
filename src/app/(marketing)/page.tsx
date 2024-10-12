@@ -125,14 +125,14 @@ const HomePage = async () => {
 
             {/* Features Section */}
             <MaxWidthWrapper className="relative pt-20 pb-40 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/20 via-purple-500/20 to-blue-500/20 opacity-30 blur-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/80 via-purple-500/60 to-blue-500/60 opacity-30 blur-3xl"></div>
                 <AnimationContainer delay={0.1}>
                     <div className="relative z-10 flex flex-col justify-center items-center lg:items-center py-8 w-full">
                         <MagicBadge title="Features" />
                         <h2 className="bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mt-6 mb-8 font-bold font-heading text-4xl text-center text-transparent md:text-6xl lg:text-center !leading-[1.1] tracking-tight">
                             Advanced AI-Driven Healthcare Solutions
                         </h2>
-                        <p className="mt-4 mb-16 max-w-2xl text-center text-gray-600 text-lg lg:text-center dark:text-gray-300">
+                        <p className="mt-4 mb-16 max-w-2xl text-2xl text-center text-gray-500 lg:text-center dark:text-gray-300">
                             Our platform offers cutting-edge tools for drug discovery, patient data analysis, and clinical trial optimization.
                         </p>
                     </div>
@@ -140,7 +140,7 @@ const HomePage = async () => {
                 <AnimationContainer delay={0.2}>
                     <BentoGrid className="relative z-10 py-8">
                         {CARDS.map((feature, idx) => (
-                            <BentoCard key={idx} {...feature} className="bg-gradient-to-br from-white/5 to-white/10 shadow-xl backdrop-blur-lg ring-1 ring-white/20 hover:ring-2 hover:ring-blue-500/50 transition-all duration-300 hover:scale-105" />
+                            <BentoCard key={idx} {...feature} className="bg-transparent shadow-xl backdrop-blur-lg ring-1 ring-blue-300 hover:ring-2 hover:ring-blue-700 transition-all duration-300 hover:scale-105" />
                         ))}
                     </BentoGrid>
                 </AnimationContainer>
@@ -150,14 +150,14 @@ const HomePage = async () => {
 
             {/* Process Section */}
             <MaxWidthWrapper className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/20 via-blue-500/20 to-indigo-500/20 opacity-30 blur-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/60 via-blue-500/60 to-indigo-500/60 opacity-30 blur-3xl"></div>
                 <AnimationContainer delay={0.1}>
                     <div className="relative z-10 flex flex-col justify-center items-center lg:items-center mx-auto py-8 w-full max-w-2xl">
                         <MagicBadge title="Our Process" />
                         <h2 className="bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 mt-6 mb-8 font-bold font-heading text-4xl text-center text-transparent md:text-6xl lg:text-center !leading-[1.1] tracking-tight">
                             Revolutionizing healthcare research in 3 steps
                         </h2>
-                        <p className="mt-4 mb-16 max-w-lg text-center text-gray-600 text-lg lg:text-center dark:text-gray-300">
+                        <p className="mt-4 mb-16 max-w-lg text-2xl text-center text-gray-400 lg:text-center dark:text-gray-300">
                             Our streamlined process accelerates drug discovery and enhances patient outcomes through advanced AI technologies.
                         </p>
                     </div>
@@ -166,7 +166,7 @@ const HomePage = async () => {
                 <div className="relative z-10 gap-8 md:gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 w-full">
                     {PROCESS.map((process, id) => (
                         <AnimationContainer delay={0.2 * id} key={id}>
-                            <MagicCard className="bg-gradient-to-br from-white/5 to-white/10 shadow-xl hover:shadow-2xl backdrop-blur-lg md:py-8 ring-1 ring-white/20 h-full duration-300 group hover:scale-105 transition-all">
+                            <MagicCard className="bg-gradient-to-br from-white/60 to-white/40 shadow-xl hover:shadow-2xl backdrop-blur-lg md:py-8 ring-1 ring-blue-600 h-full duration-300 group hover:scale-105 transition-all">
                                 <div className="flex flex-col justify-between items-start p-8 w-full h-full">
                                     <div>
                                         <process.icon strokeWidth={1.5} className="mb-6 w-16 h-16 text-blue-500" />
@@ -193,14 +193,14 @@ const HomePage = async () => {
 
             {/* Pricing Section */}
             <MaxWidthWrapper className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-bl from-fuchsia-500/20 via-purple-500/20 to-indigo-500/20 opacity-30 blur-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-fuchsia-500/40 via-purple-500/60 to-indigo-500/90 opacity-30 blur-3xl"></div>
                 <AnimationContainer delay={0.1}>
                     <div className="relative z-10 flex flex-col justify-center items-center lg:items-center mx-auto py-8 w-full max-w-2xl">
                         <MagicBadge title="Flexible Pricing" />
                         <h2 className="bg-clip-text bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-600 mt-6 mb-8 font-bold font-heading text-4xl text-center text-transparent md:text-6xl lg:text-center !leading-[1.1] tracking-tight">
                             Choose a plan tailored to your research needs
                         </h2>
-                        <p className="mt-4 mb-16 max-w-lg text-center text-gray-600 text-lg lg:text-center dark:text-gray-300">
+                        <p className="mt-4 mb-16 max-w-lg text-2xl text-center text-gray-400 lg:text-center dark:text-gray-300">
                             Start leveraging our AI-powered healthcare research platform today with plans designed for every scale of operation.
                         </p>
                     </div>
@@ -214,7 +214,7 @@ const HomePage = async () => {
                     <div className="relative z-10 flex flex-wrap justify-center lg:justify-evenly items-start md:items-center gap-6 mx-auto mt-12 w-full max-w-5xl">
                         <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 shadow-lg p-3 rounded-full">
                             <CreditCardIcon className="w-5 h-5 text-purple-500" />
-                            <span className="font-medium text-gray-700">
+                            <span className="bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-medium text-3xl text-transparent">
                                 No credit card required
                             </span>
                         </div>
@@ -231,8 +231,8 @@ const HomePage = async () => {
                         <h2 className="bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mt-6 font-bold font-heading text-4xl text-center text-transparent md:text-6xl lg:text-center !leading-[1.1] tracking-tight">
                             What our users are saying
                         </h2>
-                        <p className="mt-4 max-w-lg text-center text-gray-600 text-lg lg:text-center">
-                            Here&apos;s what some of our users have to say about Linkify.
+                        <p className="mt-4 max-w-lg text-3xl text-center text-gray-400 lg:text-center">
+                            Here&apos;s what some of our users have to say about <span className="bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-fuchsia-600 text-transparent">bionexus</span>
                         </p>
                     </div>
                 </AnimationContainer>
@@ -240,7 +240,7 @@ const HomePage = async () => {
                     <div className="flex flex-col items-start gap-6 h-min">
                         {REVIEWS.slice(0, 3).map((review, index) => (
                             <AnimationContainer delay={0.2 * index} key={index}>
-                                <MagicCard key={index} className="bg-gradient-to-br from-white/5 to-white/10 shadow-xl hover:shadow-2xl backdrop-blur-lg md:p-0 ring-1 ring-white/20 hover:scale-105 transition-all duration-300">
+                                <MagicCard key={index} className="bg-gradient-to-br from-blue-700/30 to-blue-900/30 shadow-xl hover:shadow-2xl backdrop-blur-lg md:p-0 ring-1 ring-violet-500 hover:scale-105 transition-all duration-300">
                                     <Card className="flex flex-col bg-transparent border-none w-full h-min">
                                         <CardHeader className="space-y-0">
                                             <CardTitle className="bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-lg text-transparent">
@@ -296,18 +296,18 @@ const HomePage = async () => {
                     <div className="flex flex-col items-start gap-6 h-min">
                         {REVIEWS.slice(6, 9).map((review, index) => (
                             <AnimationContainer delay={0.2 * index} key={index}>
-                                <MagicCard key={index} className="md:p-0">
-                                    <Card className="flex flex-col border-none w-full h-min">
+                                 <MagicCard key={index} className="bg-gradient-to-br from-white/5 to-white/10 shadow-xl hover:shadow-2xl backdrop-blur-lg md:p-0 ring-1 ring-white/20 hover:scale-105 transition-all duration-300">
+                                    <Card className="flex flex-col bg-transparent border-none w-full h-min">
                                         <CardHeader className="space-y-0">
-                                            <CardTitle className="font-medium text-lg text-muted-foreground">
+                                            <CardTitle className="bg-clip-text bg-gradient-to-r from-sky-600 via-indigo-600 to-pink-600 font-bold text-lg text-transparent">
                                                 {review.name}
                                             </CardTitle>
-                                            <CardDescription>
+                                            <CardDescription className="text-gray-500">
                                                 {review.username}
                                             </CardDescription>
                                         </CardHeader>
                                         <CardContent className="space-y-4 pb-4">
-                                            <p className="text-muted-foreground">
+                                            <p className="text-gray-600">
                                                 {review.review}
                                             </p>
                                         </CardContent>
@@ -330,23 +330,30 @@ const HomePage = async () => {
                 <AnimationContainer delay={0.1}>
                     <LampContainer>
                         <div className="relative flex flex-col justify-center items-center w-full text-center">
-                            <h2 className="mt-8 py-4 font-heading font-medium text-4xl text-center text-white md:text-7xl !leading-[1.15] tracking-tight">
+                            <h2 className="mt-8 py-4 font-heading font-medium text-4xl text-center text-white md:text-6xl !leading-[1.15] tracking-tight">
                                 Revolutionizing Healthcare with AI-Powered Research
                             </h2>
-                            <p className="bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200 mx-auto mt-6 p-2 max-w-md font-bold text-transparent">
+                            <p className="bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200 mx-auto mt-6 p-2 max-w-md font-bold text-3xl text-transparent">
                                 Discover our cutting-edge AI platform thats transforming healthcare research. Accelerate drug discovery and improve patient outcomes with our advanced technology.
                             </p>
                             <Link href="/dashboard">
-                                <Button className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-lg hover:shadow-xl backdrop-blur-sm backdrop-filter mt-6 px-8 py-4 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 hover:scale-105 hover:rotate-1 focus:outline-none">
+                                <Button className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter mt-6 px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
                                     <span className="relative z-10 flex justify-center items-center">
-                                        <span className="mr-2 text-lg">Start your research journey</span>
-                                        <ArrowRightIcon className="w-6 h-6 animate-pulse" />
+                                        <span className="mr-3 font-extrabold text-xl tracking-wider">Start your research journey</span>
+                                        <ArrowRightIcon className="w-8 h-8 animate-pulse" />
                                     </span>
                                     <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 opacity-75 blur-md rounded-full"></span>
-                                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 opacity-0 hover:opacity-75 blur-lg rounded-full transition-opacity duration-300"></span>
+                                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 opacity-0 group-hover:opacity-75 blur-lg rounded-full transition-opacity duration-300"></span>
                                     <span className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-500 opacity-0 group-hover:opacity-50 blur rounded-full transition-opacity duration-300"></span>
                                     <span className="absolute inset-0 border-2 border-white border-opacity-50 rounded-full"></span>
                                     <span className="absolute inset-0 border-2 border-white border-opacity-20 rounded-full animate-ping"></span>
+                                    <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                                    <span className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] absolute inset-0 from-purple-900 via-purple-900 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></span>
+                                    <span className="absolute inset-0 border-4 border-purple-500 opacity-0 group-hover:opacity-100 rounded-full transition-opacity animate-pulse duration-300"></span>
+                                    <span className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-300 group-hover:duration-200"></span>
+                                    <span className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="bg-white rounded-full w-2 h-2 animate-ping"></span>
+                                    </span>
                                 </Button>
                             </Link>
                         </div>

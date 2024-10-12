@@ -20,16 +20,16 @@ const Medications = async () => {
     });
 
     return (
-        <div className="flex flex-col items-start justify-start w-full max-w-3xl py-8 mx-auto">
+        <div className="flex flex-col justify-start items-start mx-auto py-8 w-full max-w-3xl">
             <div className="flex flex-col items-start gap-2">
-                <h2 className="text-xl font-semibold">
+                <h2 className="font-semibold text-xl">
                      Know your medications
                 </h2>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                      What medications are you taking?
                 </p>
             </div>
-            <div className="flex flex-col items-start w-full py-8 gap-y-8">
+            <div className="flex flex-col items-start gap-y-8 py-8 w-full">
                 <div className="space-y-2">
                     <span className="font-medium text-foreground">
                         Name of medications
