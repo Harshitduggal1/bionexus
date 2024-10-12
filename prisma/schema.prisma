@@ -1,0 +1,149 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum Role {
+  user
+  model
+}
+
+enum Frequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+  RARELY
+}
+
+enum SymptomName {
+  HEADACHE
+  NAUSEA
+  VOMITING
+  DIARRHEA
+  FATIGUE
+  DIZZINESS
+  INSOMNIA
+  CONSTIPATION
+  MUSCLE_PAIN
+  JOINT_PAIN
+  OTHER
+}
+
+enum Adherence {
+  ALWAYS
+  OFTEN
+  SOMETIMES
+  NEVER
+  RARELY
+}
+
+enum Mood {
+  HAPPY
+  SAD
+  ANGRY
+  ANXIOUS
+  STRESSED
+  NEUTRAL
+}
+
+enum Sleep {
+  GOOD
+  BAD
+  AVERAGE
+}
+
+enum Stress {
+  NOT_STRESSED
+  SLIGHTLY
+  MODERATELY
+  HIGHLY
+  EXTREMELY
+}
+
+model User {
+  id        String  @id @default(cuid()) @map("_id")
+  clerkId   String  @unique
+  email     String  @unique
+  firstName String
+  lastName  String
+  image     String?
+
+  age           Int?
+  height        Int?
+  weight        Int?
+  gender        String?
+  bloodGroup    String?
+  medicalIssues String?
+
+  stripeCustomerId String? @map(name: "stripe_customer_id")
+  stripeInvoiceId  String? @map(name: "stripe_invoice_id")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  symptoms       Symptom[]
+  medications    Medication[]
+  mentalwellness MentalWellness[]
+  messages       Message[]
+}
+
+// step 2
+model Symptom {
+  id        String      @id @default(cuid()) @map("_id")
+  userId    String
+  name      SymptomName // here i want if if the user selects other then the predefined symptoms then he can enter his own symptom
+  intensity Int // Intensity level from 1 to 10
+  frequency Frequency //how often the symptom occurs
+  loggedAt  DateTime?   @default(now()) // When the symptom was logged
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// step 3
+model Medication {
+  id        String    @id @default(cuid()) @map("_id")
+  userId    String
+  name      String // Name of the medication
+  dosage    String // Dosage of the medication
+  purpose   String? // Purpose of the medication
+  frequency Frequency // Frequency of the medication
+  adherence Adherence // Whether the user is adhering to the medication
+  startDate DateTime? // When the medication was started
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// step 4
+model MentalWellness {
+  id        String  @id @default(cuid()) @map("_id")
+  userId    String
+  mood      Mood
+  happiness Int
+  sleep     Sleep
+  stress    Stress
+  anxiety   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// chat
+model Message {
+  id        String   @id @default(cuid()) @map("_id")
+  role      Role
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

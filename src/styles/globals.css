@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Plain white background */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --border: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 20%; /* Darker background for better contrast */
+    --foreground: 210 40% 98%;
+    --card: 240 10% 25%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground bg-background transition-colors duration-500 ease-in-out;
+  }
+
+  .dark body {
+    background-color: hsl(240, 10%, 20%);
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-card text-card-foreground border border-border rounded-lg p-6 shadow-xl transition-all duration-300 ease-in-out;
+  }
+
+  .card:hover {
+    @apply shadow-2xl transform scale-105;
+    background-color: hsl(320, 80%, 90%);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(45deg, #ff7eb3, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  /* Button Styles with Neon Glow */
+  .button {
+    @apply inline-block px-5 py-3 rounded-lg font-bold text-white shadow-lg transition-all duration-300 ease-in-out relative overflow-hidden;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.6);
+  }
+
+  .button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .button:hover::before {
+    transform: translateX(100%);
+  }
+
+  .button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .button:hover::after {
+    opacity: 0.2;
+  }
+
+  .button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 4px 15px rgba(236, 72, 153, 0.6);
+    filter: brightness(1.1);
+  }
+
+  /* Neon Glow Effect */
+  .button::before,
+  .button::after {
+    border-radius: inherit;
+  }
+
+  .button::after {
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.7), 0 0 20px rgba(236, 72, 153, 0.5);
+  }
+
+  .button-blue, .button-purple, .button-pink {
+    @apply text-blue-300 bg-opacity-75;
+  }
+
+  .button-blue:hover, .button-purple:hover, .button-pink:hover {
+    @apply bg-blue-500 bg-opacity-100;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(75, 0, 130, 0.2), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
