@@ -27,7 +27,7 @@ const HealthStatusPage = async () => {
     return (
         <div className="flex flex-col items-start w-full">
             <div className="w-full p-2 md:p-4">
-                <h1 className="text-2xl font-semibold font-heading">
+                <h1 className="text-2xl font-bold font-heading">
                     Health Status
                 </h1>
 
@@ -50,7 +50,7 @@ const HealthStatusPage = async () => {
                                             How often: <span className="font-medium text-foreground">{symptom.frequency.toLowerCase()}</span>
                                         </p>
                                         <p className="text-muted-foreground">
-                                            On a scale of 1-10: <span className="font-medium text-foreground">{symptom.intensity}</span>
+                                            On a scale of 1-10: <span className="font-extrabold text-foreground">{symptom.intensity}</span>
                                         </p>
                                     </CardContent>
                                     <CardFooter className="text-muted-foreground gap-1">
@@ -60,7 +60,7 @@ const HealthStatusPage = async () => {
                             ))}
                         </div>
                     ) : (
-                        <p className="text-muted-foreground">No symptoms reported.</p>
+                        <p className="text-muted-foreground">No symptoms reported.🥲</p>
                     )}
                 </div>
 
