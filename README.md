@@ -8,8 +8,9 @@ Welcome to **Bio Nexus**, the cutting-edge AI-powered healthcare research drug p
 3. [Features](#features)
 4. [Usage](#usage)
 5. [Contributing](#contributing)
-6. [License](#license)
-7. [Acknowledgements](#acknowledgements)
+6. [Forking and Pull Requests](#forking-and-pull-requests)
+7. [License](#license)
+8. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -20,8 +21,8 @@ To run Bio Nexus on your local machine, follow these simple steps! ✨
 ### Prerequisites 🔍
 
 Before you begin, ensure you have the following installed:
-- Python 3.x ⌨️
-- pip (Python package installer) 📦
+- Node.js (v14 or higher) 🌐
+- npm (Node package manager) 📦
 - Git 🥳
 
 ---
@@ -40,19 +41,19 @@ Before you begin, ensure you have the following installed:
     cd bionexus
     ```
 
-3. **Install required dependencies** using pip:
+3. **Install required dependencies** using npm:
 
     ```bash
-    pip install -r requirements.txt
+    bun install
     ```
 
 4. **Run the application**:
 
     ```bash
-    python app.py
+    bun dev
     ```
 
-🎉 You are all set to explore the capabilities of Bio Nexus! 🌍
+🎉 You are all set to explore the capabilities of Bio Nexus!✨ 
 
 ---
 
@@ -62,16 +63,16 @@ Here are some amazing features that Bio Nexus offers:
 
 - **AI-Based Drug Discovery** 🤖💡
   - Leveraging machine learning algorithms to predict potential drug candidates.
-  
+
 - **Clinical Data Analysis** 📊🔍
   - In-depth analysis of existing clinical data to identify trends and patterns.
-  
+
 - **Integration with Biochemical Databases** 📚🧪
   - Seamlessly connect to popular databases for comprehensive research.
-  
+
 - **User-Friendly Interface** 😊🖥️
   - Interactive UI designed for researchers and healthcare professionals.
-  
+
 - **Collaboration Tools** 🤝🌐
   - Facilitate collaboration among researchers for better outcomes.
 
@@ -84,7 +85,7 @@ Here are some amazing features that Bio Nexus offers:
 
 To use Bio Nexus effectively:
 
-1. After running the application, open your web browser and visit `http://localhost:5000`.
+1. After running the application, open your web browser and visit `http://localhost:3000`.
 2. Create an account or log in if you already have one. 🔑
 3. Start exploring the various features available, such as drug discovery, clinical data analysis, and more! 🌟
 4. Utilize the collaboration tools to interact with other researchers. 🤗
@@ -93,15 +94,53 @@ To use Bio Nexus effectively:
 
 ## Contributing 🛠️
 
-We welcome contributions from the community! If you'd like to contribute and help improve Bio Nexus:
+We welcome contributions from the community to enhance Bio Nexus! Here’s how you can help:
 
-1. Fork the repository 🍴
-2. Create your feature branch (e.g., `git checkout -b feature/AmazingFeature`) ✨
-3. Commit your changes (e.g., `git commit -m 'Add some AmazingFeature'`) 📜
-4. Push to the branch (e.g., `git push origin feature/AmazingFeature`) 📤
-5. Open a pull request and describe your changes! 📬
+1. **Star the repository** ⭐: Show your support by starring this repository. It helps us spread the word!
 
-Let's make Bio Nexus even better together! 🥳
+2. **Fork the repository** 🍴: Click on the "Fork" button at the top-right corner of this page to create your copy of the project.
+
+3. **Clone your fork** to your local machine:
+
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/bionexus.git
+    ```
+
+4. **Create a new branch** for your feature or bug fix:
+
+    ```bash
+    git checkout -b feature/AmazingFeature
+    ```
+
+5. **Make your changes** in the codebase and commit them:
+
+    ```bash
+    git commit -m 'Add some AmazingFeature'
+    ```
+
+6. **Push to your fork**:
+
+    ```bash
+    git push origin feature/AmazingFeature
+    ```
+
+7. **Open a Pull Request**: Go to the original repository on GitHub and click on the "New Pull Request" button. Provide a clear description of the changes you've made and submit your pull request.
+
+We appreciate all contributions, big or small! 💖
+
+---
+
+## Forking and Pull Requests 🤝
+
+Forking and merging changes are essential parts of open-source collaboration. Here's a quick rundown:
+
+- **Why fork?**: Forking creates a personal copy of the repository under your GitHub account, allowing you to make changes without affecting the original project.
+
+- **Creating a Pull Request**: After making changes in your fork, you can submit a pull request to indicate that you'd like your changes to be reviewed and potentially merged into the main project. This is how we collaborate!
+
+- **Review Process**: Once you submit a pull request, the project maintainers will review your changes. They may request modifications or provide feedback to ensure code quality and consistency.
+
+- **Merging**: If everything looks great, your pull request will be merged, and your contributions will be part of Bio Nexus! 🎊
 
 ---
 
