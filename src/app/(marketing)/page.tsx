@@ -1,4 +1,5 @@
-/* eslint-disable react/jsx-no-undef */
+import dynamic from 'next/dynamic';
+import { Suspense, lazy } from 'react';
 import { AnimationContainer, MaxWidthWrapper } from "@/components";
 import { BentoCard, BentoGrid, CARDS } from "@/components/ui/bento-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
@@ -13,31 +14,32 @@ import { currentUser } from "@clerk/nextjs/server";
 import { ArrowRightIcon, CreditCardIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Pricing from "@/components/pricingcards";
-import Stats from "@/components/stats";
-import CardHoverEffect from "@/components/Cards";
-import GridTabs from "@/components/girdtabs";
-import { Testimonial } from "@/components/Testimonial";
-import Services from "@/components/Services";
-import Offerings from "@/components/offerings";
-import dashboard from "@/public/dashboard.png";
-import FAQS from "@/components/Faqs";
-import Particles from "@/components/ui/particles";
 import SparklesText from "@/components/ui/sparkles-text";
+import dashboard from "@/public/dashboard.png";
+import { Testimonial } from '@/components/Testimonial';
+import { SparklesCore } from '@/components/ui/sparkles';
+import { LogoTicker } from '@/components/Logos';
+import LampDemo from "@/components/ui/lamp";
 
-const HomePage = async () => {
+// Dynamically import heavy components
+const Pricing = dynamic(() => import("@/components/pricingcards"), { ssr: false });
+const Stats = dynamic(() => import("@/components/stats"), { ssr: false });
+const CardHoverEffect = dynamic(() => import("@/components/Cards"), { ssr: false });
+const GridTabs = dynamic(() => import("@/components/girdtabs"), { ssr: false });
+
+const Services = dynamic(() => import("@/components/Services"), { ssr: false });
+const Offerings = dynamic(() => import("@/components/offerings"), { ssr: false });
+const FAQS = dynamic(() => import("@/components/Faqs"), { ssr: false });
+
+const Homepage = async () => {
     const user = await currentUser();
 
     return (
         <div>
-        <Particles
-        className="z-0 absolute inset-0"
-        quantity={100}
-        ease={80}
-        refresh
-    />
+          
             {/* Hero Section */}
             <MaxWidthWrapper className="relative z-10">
+           
                 <div className="flex flex-col justify-center items-center py-20 md:py-32 w-full text-center">
                     <AnimationContainer className="flex flex-col justify-center items-center w-full text-center">
                         <button className="relative grid shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] hover:shadow-[0_1000px_0_0_hsl(0_0%_30%)_inset] px-6 py-2 rounded-full transition-colors duration-300 overflow-hidden group">
@@ -49,6 +51,14 @@ const HomePage = async () => {
                                 <ArrowRightIcon className="ml-1 transition-transform group-hover:translate-x-1 duration-300 ease-in-out size-3" />
                             </span>
                         </button>
+                        <SparklesCore
+          background="transparent"
+          minSize={0.9}
+          maxSize={1}
+          particleDensity={1200}
+          className="w-full h-full"
+          particleColor="#0c38eb"
+        />
                         <h1 className="py-8 w-full font-bold font-heading text-5xl text-balance text-center text-foreground sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.1] tracking-tight">
                             AI-Powered <span className="inline-block bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent">Healthcare</span> 
                         </h1>
@@ -77,6 +87,7 @@ const HomePage = async () => {
                             duration={12}
                             delay={9}
                         />
+                        <LogoTicker/>
                         <Image
                             src={dashboard}
                             alt="AI Healthcare Dashboard"
@@ -89,8 +100,11 @@ const HomePage = async () => {
                     </AnimationContainer>
                 </div>
             </MaxWidthWrapper>
-            <Stats />
-            <GridTabs />
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <Stats />
+                <GridTabs />
+            </Suspense>
 
             {/* Companies Section */}
             <MaxWidthWrapper>
@@ -121,7 +135,10 @@ const HomePage = async () => {
                     </div>
                 </AnimationContainer>
             </MaxWidthWrapper>
-            <CardHoverEffect />
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <CardHoverEffect />
+            </Suspense>
 
             {/* Features Section */}
             <MaxWidthWrapper className="relative pt-20 pb-40 overflow-hidden">
@@ -146,11 +163,13 @@ const HomePage = async () => {
                 </AnimationContainer>
             </MaxWidthWrapper>
     
-            <Testimonial />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Testimonial />
+            </Suspense>
 
             {/* Process Section */}
             <MaxWidthWrapper className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/60 via-blue-500/60 to-indigo-500/60 opacity-30 blur-3xl"></div>
+                <div className="absolute inset-0 bg-transparent opacity-30 blur-3xl"></div>
                 <AnimationContainer delay={0.1}>
                     <div className="relative z-10 flex flex-col justify-center items-center lg:items-center mx-auto py-8 w-full max-w-2xl">
                         <MagicBadge title="Our Process" />
@@ -166,34 +185,48 @@ const HomePage = async () => {
                 <div className="relative z-10 gap-8 md:gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 w-full">
                     {PROCESS.map((process, id) => (
                         <AnimationContainer delay={0.2 * id} key={id}>
-                            <MagicCard className="bg-gradient-to-br from-white/60 to-white/40 shadow-xl hover:shadow-2xl backdrop-blur-lg md:py-8 ring-1 ring-blue-600 h-full duration-300 group hover:scale-105 transition-all">
-                                <div className="flex flex-col justify-between items-start p-8 w-full h-full">
-                                    <div>
-                                        <process.icon strokeWidth={1.5} className="mb-6 w-16 h-16 text-blue-500" />
+                            <MagicCard className="bg-gradient-to-br from-white/60 via-purple-200/30 to-blue-200/40 shadow-2xl hover:shadow-3xl backdrop-blur-xl md:py-10 rounded-3xl ring-2 ring-blue-600/50 hover:ring-blue-600 h-full duration-500 group hover:scale-105 transition-all overflow-hidden">
+                                <div className="relative flex flex-col justify-between items-start p-8 w-full h-full overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div className="relative z-10">
+                                        <div className="group-hover:rotate-6 bg-gradient-to-br from-blue-400 to-purple-600 shadow-lg mb-8 rounded-2xl w-20 h-20 transform transition-all duration-300 rotate-3">
+                                            <process.icon strokeWidth={1.5} className="group-hover:-rotate-6 p-4 w-full h-full text-white transform transition-all duration-300 -rotate-3" />
+                                        </div>
                                         <div className="relative flex flex-col items-start">
-                                            <span className="-top-6 right-0 absolute flex justify-center items-center border-2 bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 pt-0.5 border-blue-500 rounded-full w-12 h-12 font-bold text-2xl text-transparent">
+                                            <span className="group-hover:scale-110 -top-6 right-0 absolute flex justify-center items-center border-4 bg-white dark:bg-gray-800 shadow-xl border-blue-500 rounded-full w-16 h-16 font-bold text-3xl text-blue-600 dark:text-blue-400 transform transition-all duration-300">
                                                 {id + 1}
                                             </span>
-                                            <h3 className="bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mt-6 mb-4 font-bold text-2xl text-transparent">
+                                            <h3 className="group-hover:text-4xl bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-6 mb-4 font-extrabold text-3xl text-transparent transition-all duration-300">
                                                 {process.title}
                                             </h3>
-                                            <p className="mt-2 text-gray-600 text-lg dark:text-gray-300">
+                                            <p className="group-hover:text-xl mt-2 text-gray-700 text-lg dark:text-gray-300 leading-relaxed transition-all duration-300">
                                                 {process.description}
                                             </p>
                                         </div>
                                     </div>
-                                    <Button variant="outline" className="mt-6">Learn More</Button>
+                                    <Button variant="outline" className="relative bg-gradient-to-r from-blue-500 hover:from-purple-600 to-purple-600 hover:to-blue-500 shadow-lg hover:shadow-xl mt-8 px-6 py-3 rounded-full font-bold text-white transform hover:scale-105 transition-all duration-300 overflow-hidden group" asChild>
+                                        <Link href="/dashboard" className="flex items-center">
+                                            Learn More
+                                            <ArrowRightIcon className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 duration-300" />
+                                            <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-50 blur-md transition-opacity duration-300"></span>
+                                            <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-400 opacity-0 group-hover:opacity-30 blur-sm transition-opacity duration-300"></span>
+                                        </Link>
+                                    </Button>
                                 </div>
+                                <div className="group-hover:scale-x-100 bottom-0 left-0 absolute bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 w-full h-1 transform transition-transform duration-500 scale-x-0"></div>
                             </MagicCard>
                         </AnimationContainer>
                     ))}
                 </div>
             </MaxWidthWrapper>
-            <Services />
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <Services />
+            </Suspense>
 
             {/* Pricing Section */}
             <MaxWidthWrapper className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-bl from-fuchsia-500/40 via-purple-500/60 to-indigo-500/90 opacity-30 blur-3xl"></div>
+                <div className="absolute inset-0 bg-transparent opacity-30 blur-3xl"></div>
                 <AnimationContainer delay={0.1}>
                     <div className="relative z-10 flex flex-col justify-center items-center lg:items-center mx-auto py-8 w-full max-w-2xl">
                         <MagicBadge title="Flexible Pricing" />
@@ -328,16 +361,9 @@ const HomePage = async () => {
             <Offerings/>
 
                 <AnimationContainer delay={0.1}>
-                    <LampContainer>
-                        <div className="relative flex flex-col justify-center items-center w-full text-center">
-                            <h2 className="mt-8 py-4 font-heading font-medium text-4xl text-center text-white md:text-6xl !leading-[1.15] tracking-tight">
-                                Revolutionizing Healthcare with AI-Powered Research
-                            </h2>
-                            <p className="bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200 mx-auto mt-6 p-2 max-w-md font-bold text-3xl text-transparent">
-                                Discover our cutting-edge AI platform thats transforming healthcare research. Accelerate drug discovery and improve patient outcomes with our advanced technology.
-                            </p>
-                            <Link href="/dashboard">
-                                <Button className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter mt-6 px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
+                <LampDemo/>
+                    <Link href="/dashboard">
+                                <Button className="flex justify-center relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter mt-6 px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
                                     <span className="relative z-10 flex justify-center items-center">
                                         <span className="mr-3 font-extrabold text-xl tracking-wider">Start your research journey</span>
                                         <ArrowRightIcon className="w-8 h-8 animate-pulse" />
@@ -356,11 +382,9 @@ const HomePage = async () => {
                                     </span>
                                 </Button>
                             </Link>
-                        </div>
-                    </LampContainer>
                 </AnimationContainer>
         </div>
     )
 };
 
-export default HomePage
+export default Homepage

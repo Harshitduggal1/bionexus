@@ -141,15 +141,14 @@ export default function Pricing() {
               className="mb-16 md:mb-20 text-center"
             >
               <motion.h2
-                style={{ ...font.style, ...gradientTextStyle }}
-                className="mb-5 font-bold text-4xl text-white md:text-6xl tracking-tight"
+                className="bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 mb-5 font-bold text-4xl text-transparent md:text-6xl tracking-tight"
                 variants={itemAnimation}
               >
                 Simple pricing for everyone
               </motion.h2>
               <motion.p
                 variants={itemAnimation}
-                className="mx-auto max-w-3xl text-lg text-white md:text-xl leading-8"
+                className="mx-auto max-w-3xl font-extrabold text-gray-600 text-xl md:text-xl leading-8"
               >
                 It doesnt matter what size your business is, our software wont
                 work well for you.
@@ -214,7 +213,7 @@ export default function Pricing() {
                 >
                   {card.recommended && (
                     <motion.div
-                      className="-top-4 left-1/2 absolute bg-gradient-to-r from-blue-600  via-indigo-600 to-fuchsia-600 px-4 py-1 rounded-full font-bold text-sm text-white transform -translate-x-1/2"
+                      className="-top-4 left-1/2 absolute bg-gradient-to-r from-blue-600 via-indigo-600 to-fuchsia-600 px-4 py-1 rounded-full font-bold text-sm text-white transform -translate-x-1/2"
                       initial={{ y: -10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.5 }}
@@ -279,7 +278,7 @@ export default function Pricing() {
                         30% off
                       </motion.p>
                     )}
-                    <ButtonLink href="/dashboard" className="bg-gradient-to-r from-pink-700 hover:from-blue-500 via-violet-700 to-blue-800 hover:via-purple-600 hover:to-fuchsia-500 px-6 py-3 rounded-full w-full font-bold text-white transition-all duration-300">
+                    <ButtonLink href="/dashboard" className="bg-gradient-to-r from-pink-700 hover:from-blue-500 via-violet-700 hover:via-purple-600 to-blue-800 hover:to-fuchsia-500 px-6 py-3 rounded-full w-full font-bold text-white transition-all duration-300">
                       Get started✨
                     </ButtonLink>
                   </motion.div>

@@ -1,48 +1,32 @@
-const CopyPlugin = require("copy-webpack-plugin");
-const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  experimental: {
-    appDir: true,
+  images: {
+    domains: ['img.clerk.com', 'images.unsplash.com'], // Add any other domains you need
   },
-  webpack(config, { isServer }) {
-    config.plugins.push( 
-      new CopyPlugin({
-        patterns: [
-          {
-            from: "node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm",
-            to: "static/chunks",
-          },
-        ],
-      }),
-    );
 
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
-        ...config.resolve.fallback,
         fs: false,
-        net: false,
-        tls: false,
+        path: false,
+        crypto: false,
       };
     }
 
-    config.resolve.alias['@'] = path.resolve(__dirname);
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: 'node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm',
+            to: 'static/chunks',
+          },
+        ],
+      })
+    );
 
     return config;
-  },
-  images: {
-    remotePatterns: [
-      {
-        hostname: "img.clerk.com",
-        protocol: "https",
-      }
-    ],
-    unoptimized: true,
-  },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
   },
 };
 

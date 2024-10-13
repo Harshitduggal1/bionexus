@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Dna, Microscope, Pill, Stethoscope, Brain, LifeBuoy } from "lucide-react";
+import { Dna, Microscope, Pill, Brain, LifeBuoy } from "lucide-react";
 import AnimationContainer from './animation-container';
 
 const features = [
@@ -11,29 +11,29 @@ const features = [
     name: "AI-Powered Drug Discovery",
     description: "Leverage advanced AI algorithms to accelerate the drug discovery process and identify promising candidates.",
     icon: Dna,
-    href: "/drug-discovery",
-    color: "from-blue-400 to-cyan-300"
+    href: "/dashboard",
+    color: "from-blue-500 via-indigo-600 to-violet-700"
   },
   {
     name: "Molecular Modeling",
     description: "Utilize state-of-the-art molecular modeling and simulation tools for precise drug-target interactions.",
     icon: Microscope,
-    href: "/molecular-modeling",
-    color: "from-green-600 to-green-300"
+    href: "/dashboard",
+    color: "from-emerald-400 via-teal-500 to-cyan-600"
   },
   {
     name: "Biomedical Data Analysis",
     description: "Harness machine learning and big data analytics to extract insights from complex biomedical datasets.",
     icon: Brain,
-    href: "/data-analysis",
-    color: "from-orange-500 to-yellow-400"
+    href: "/dashboard",
+    color: "from-amber-400 via-orange-500 to-rose-600"
   },
   {
     name: "Precision Medicine",
     description: "Advance personalized healthcare solutions by analyzing patient-specific data with AI algorithms.",
     icon: Pill,
-    href: "/precision-medicine",
-    color: "from-purple-400 to-pink-500"
+    href: "/dashboard",
+    color: "from-fuchsia-500 via-purple-600 to-pink-700"
   },
 ];
 
@@ -76,12 +76,12 @@ export function Features() {
           <div className="flex items-center justify-center mb-6">
             <LifeBuoy className="w-4 h-4 mr-2" />
             <motion.span 
-              className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-white to-violet-600 bg-clip-text text-center text-2xl font-bold leading-none text-transparent"
+              className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-white via-blue-300 to-violet-600 bg-clip-text text-center text-2xl font-bold leading-none text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Revolutionize Your Scheduling
+              Revolutionize Your Research
             </motion.span>
           </div>
           <motion.h1
@@ -90,16 +90,16 @@ export function Features() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Schedule Meetings in Minutes
+            Accelerate Drug Discovery with AI
           </motion.h1>
           <motion.p
-            className="mt-6 text-xl pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-white/80 to-gray-300/50  bg-clip-text text-center font-semibold leading-relaxed text-transparent"
+            className="mt-6 text-xl pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-white/80 via-blue-200 to-purple-300 bg-clip-text text-center font-semibold leading-relaxed text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            DAYFLOW.IO empowers you to take control of your time. Experience lightning-fast,
-            secure, and effortless scheduling that adapts to your needs.
+            BioNexus AI empowers you to revolutionize healthcare research. Experience cutting-edge,
+            AI-driven solutions that adapt to your scientific needs.
           </motion.p>
         </motion.div>
       </AnimationContainer>
@@ -131,13 +131,13 @@ export function Features() {
                   <p className="text-gray-100 mb-6">{feature.description}</p>
                   <Link href={feature.href} passHref>
                     <motion.a
-                      className="inline-flex items-center px-4 py-2 bg-white text-purple-600 rounded-full font-semibold text-sm transition-colors duration-300 hover:bg-purple-300"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-full font-semibold text-sm transition-all duration-300 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 hover:shadow-lg hover:scale-105"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Learn More
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
                     </motion.a>
                   </Link>
