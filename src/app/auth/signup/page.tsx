@@ -110,13 +110,13 @@ const SignUpPage = () => {
     };
 
     return isVerified ? (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4">
-            <div className="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 space-y-8 transform hover:scale-105 transition-all duration-300">
-                <div className="flex flex-col text-center gap-4">
+        <div className="flex flex-col justify-center items-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 min-h-screen">
+            <div className="space-y-8 bg-white bg-opacity-10 shadow-2xl backdrop-blur-lg p-8 rounded-3xl w-full max-w-md transform hover:scale-105 transition-all duration-300">
+                <div className="flex flex-col gap-4 text-center">
                     <Link href="/">
-                        <Icons.logo className="w-16 h-16 mx-auto text-white hover:text-pink-300 transition-colors duration-300" />
+                        <Icons.logo className="mx-auto w-16 h-16 text-white hover:text-pink-300 transition-colors duration-300" />
                     </Link>
-                    <h1 className="text-3xl font-extrabold font-heading mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
+                    <h1 className="bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500 mt-2 font-extrabold font-heading text-3xl text-transparent">
                         Please check your email
                     </h1>
                     <p className="text-lg text-white text-opacity-80">
@@ -126,7 +126,7 @@ const SignUpPage = () => {
 
                 <form onSubmit={handleVerify} className="space-y-6">
                     <div className="space-y-4">
-                        <Label htmlFor="name" className="text-xl font-semibold text-white">
+                        <Label htmlFor="name" className="font-semibold text-white text-xl">
                             Verification Code
                         </Label>
                         <InputOTP
@@ -137,12 +137,12 @@ const SignUpPage = () => {
                             className="gap-2"
                         >
                             <InputOTPGroup>
-                                <InputOTPSlot index={0} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
-                                <InputOTPSlot index={1} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
-                                <InputOTPSlot index={2} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
-                                <InputOTPSlot index={3} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
-                                <InputOTPSlot index={4} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
-                                <InputOTPSlot index={5} className="w-12 h-12 text-2xl font-bold text-indigo-800 bg-white bg-opacity-50 border-2 border-indigo-300 rounded-xl focus:ring-4 focus:ring-pink-400 transition-all duration-300" />
+                                <InputOTPSlot index={0} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
+                                <InputOTPSlot index={1} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
+                                <InputOTPSlot index={2} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
+                                <InputOTPSlot index={3} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
+                                <InputOTPSlot index={4} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
+                                <InputOTPSlot index={5} className="border-2 border-indigo-300 bg-white bg-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 w-12 h-12 font-bold text-2xl text-indigo-800 transition-all duration-300" />
                             </InputOTPGroup>
                         </InputOTP>
                     </div>
@@ -150,33 +150,33 @@ const SignUpPage = () => {
                         size="lg"
                         type="submit"
                         disabled={isVerifying}
-                        className="w-full bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white text-lg font-bold py-3 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-blue-500 hover:from-blue-600 to-pink-500 hover:to-pink-600 shadow-lg py-3 rounded-xl w-full font-bold text-lg text-white transform hover:scale-105 transition-all duration-300"
                     >
                         {isVerifying ? (
-                            <LoaderIcon className="w-6 h-6 animate-spin text-white" />
+                            <LoaderIcon className="w-6 h-6 text-white animate-spin" />
                         ) : "Verify Code"}
                     </Button>
                 </form>
             </div>
         </div>
     ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-700 p-4">
-            <div className="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-8 transform hover:scale-105 transition-all duration-300">
-                <div className="flex flex-col text-center gap-4">
+        <div className="flex flex-col justify-center items-center bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-700 p-4 min-h-screen">
+            <div className="space-y-8 bg-white bg-opacity-10 shadow-2xl backdrop-blur-xl p-8 rounded-3xl w-full max-w-md transform hover:scale-105 transition-all duration-300">
+                <div className="flex flex-col gap-4 text-center">
                     <Link href="/">
-                        <Icons.logo className="w-16 h-16 mx-auto text-white hover:text-pink-300 transition-colors duration-300" />
+                        <Icons.logo className="mx-auto w-16 h-16 text-white hover:text-pink-300 transition-colors duration-300" />
                     </Link>
-                    <h1 className="text-4xl font-extrabold font-heading mt-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-blue-500">
+                    <h1 className="bg-clip-text bg-gradient-to-r from-pink-400 to-blue-500 mt-2 font-extrabold font-heading text-4xl text-transparent">
                         Sign Up
                     </h1>
                     <p className="text-lg text-white text-opacity-80">
-                        Create an account to start using cura
+                        Create an account to start using <span className="bg-clip-text bg-gradient-to-r from-pink-800 to-blue-800 text-transparent"> BIONEXUS</span>       
                     </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                        <Label htmlFor="name" className="text-xl font-semibold text-white">
+                        <Label htmlFor="name" className="font-semibold text-white text-xl">
                             Full Name
                         </Label>
                         <Input
@@ -186,11 +186,11 @@ const SignUpPage = () => {
                             value={name}
                             disabled={isLoading}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-3 text-lg bg-white bg-opacity-20 border-2 border-white border-opacity-30 text-white placeholder-white placeholder-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 focus:border-transparent transition-all duration-300"
+                            className="border-2 border-white bg-white bg-opacity-20 placeholder-opacity-50 px-4 py-3 focus:border-transparent border-opacity-30 rounded-xl focus:ring-4 focus:ring-pink-400 w-full text-lg text-white transition-all duration-300 placeholder-white"
                         />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="email" className="text-xl font-semibold text-white">
+                        <Label htmlFor="email" className="font-semibold text-white text-xl">
                             Email address
                         </Label>
                         <Input
@@ -200,11 +200,11 @@ const SignUpPage = () => {
                             value={email}
                             disabled={isLoading}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 text-lg bg-white bg-opacity-20 border-2 border-white border-opacity-30 text-white placeholder-white placeholder-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 focus:border-transparent transition-all duration-300"
+                            className="border-2 border-white bg-white bg-opacity-20 placeholder-opacity-50 px-4 py-3 focus:border-transparent border-opacity-30 rounded-xl focus:ring-4 focus:ring-pink-400 w-full text-lg text-white transition-all duration-300 placeholder-white"
                         />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="password" className="text-xl font-semibold text-white">
+                        <Label htmlFor="password" className="font-semibold text-white text-xl">
                             Password
                         </Label>
                         <div className="relative w-full">
@@ -215,14 +215,14 @@ const SignUpPage = () => {
                                 value={password}
                                 disabled={isLoading}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-4 py-3 text-lg bg-white bg-opacity-20 border-2 border-white border-opacity-30 text-white placeholder-white placeholder-opacity-50 rounded-xl focus:ring-4 focus:ring-pink-400 focus:border-transparent transition-all duration-300 pr-12"
+                                className="border-2 border-white bg-white bg-opacity-20 placeholder-opacity-50 px-4 py-3 pr-12 focus:border-transparent border-opacity-30 rounded-xl focus:ring-4 focus:ring-pink-400 w-full text-lg text-white transition-all duration-300 placeholder-white"
                             />
                             <Button
                                 type="button"
                                 size="icon"
                                 variant="ghost"
                                 disabled={isLoading}
-                                className="absolute top-1/2 right-2 transform -translate-y-1/2 hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-all duration-300"
+                                className="top-1/2 right-2 absolute hover:bg-white hover:bg-opacity-20 p-1 rounded-full transform transition-all -translate-y-1/2 duration-300"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
                                 {showPassword ?
@@ -236,17 +236,17 @@ const SignUpPage = () => {
                         type="submit"
                         size="lg"
                         disabled={isLoading}
-                        className="w-full bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white text-lg font-bold py-3 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-pink-500 hover:from-pink-600 to-blue-500 hover:to-blue-600 shadow-lg py-3 rounded-xl w-full font-bold text-lg text-white transform hover:scale-105 transition-all duration-300"
                     >
                         {isLoading ? (
-                            <LoaderIcon className="w-6 h-6 animate-spin text-white" />
+                            <LoaderIcon className="w-6 h-6 text-white animate-spin" />
                         ) : "Continue"}
                     </Button>
                 </form>
 
                 <div className="flex mt-4">
-                    <p className="text-lg text-white text-opacity-80 text-center w-full">
-                        Been here before? <Link href="/auth/signin" className="text-pink-300 hover:text-pink-100 font-semibold underline transition-colors duration-300">Sign In</Link>
+                    <p className="w-full text-center text-lg text-white text-opacity-80">
+                        Been here before? <Link href="/auth/signin" className="font-semibold text-pink-300 hover:text-pink-100 underline transition-colors duration-300">Sign In</Link>
                     </p>
                 </div>
             </div>

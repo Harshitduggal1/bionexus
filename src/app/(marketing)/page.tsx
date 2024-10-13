@@ -360,28 +360,30 @@ const Homepage = async () => {
             </MaxWidthWrapper>
             <Offerings/>
 
-                <AnimationContainer delay={0.1}>
-                <LampDemo/>
-                    <Link href="/dashboard">
-                                <Button className="flex justify-center relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter mt-6 px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
-                                    <span className="relative z-10 flex justify-center items-center">
-                                        <span className="mr-3 font-extrabold text-xl tracking-wider">Start your research journey</span>
-                                        <ArrowRightIcon className="w-8 h-8 animate-pulse" />
-                                    </span>
-                                    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 opacity-75 blur-md rounded-full"></span>
-                                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 opacity-0 group-hover:opacity-75 blur-lg rounded-full transition-opacity duration-300"></span>
-                                    <span className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-500 opacity-0 group-hover:opacity-50 blur rounded-full transition-opacity duration-300"></span>
-                                    <span className="absolute inset-0 border-2 border-white border-opacity-50 rounded-full"></span>
-                                    <span className="absolute inset-0 border-2 border-white border-opacity-20 rounded-full animate-ping"></span>
-                                    <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                                    <span className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] absolute inset-0 from-purple-900 via-purple-900 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></span>
-                                    <span className="absolute inset-0 border-4 border-purple-500 opacity-0 group-hover:opacity-100 rounded-full transition-opacity animate-pulse duration-300"></span>
-                                    <span className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-300 group-hover:duration-200"></span>
-                                    <span className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="bg-white rounded-full w-2 h-2 animate-ping"></span>
-                                    </span>
-                                </Button>
-                            </Link>
+                <AnimationContainer delay={0.1} className="flex flex-col items-center justify-center">
+                    <LampDemo/>
+                    <div className="mt-6 flex justify-center">
+                        <Link href="/dashboard">
+                            <Button className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
+                                <span className="relative z-10 flex justify-center items-center">
+                                    <span className="mr-3 font-extrabold text-xl tracking-wider">Start your research journey</span>
+                                    <ArrowRightIcon className="w-8 h-8 animate-pulse" />
+                                </span>
+                                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 opacity-75 blur-md rounded-full"></span>
+                                <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 opacity-0 group-hover:opacity-75 blur-lg rounded-full transition-opacity duration-300"></span>
+                                <span className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-500 opacity-0 group-hover:opacity-50 blur rounded-full transition-opacity duration-300"></span>
+                                <span className="absolute inset-0 border-2 border-white border-opacity-50 rounded-full"></span>
+                                <span className="absolute inset-0 border-2 border-white border-opacity-20 rounded-full animate-ping"></span>
+                                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                                <span className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] absolute inset-0 from-purple-900 via-purple-900 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></span>
+                                <span className="absolute inset-0 border-4 border-purple-500 opacity-0 group-hover:opacity-100 rounded-full transition-opacity animate-pulse duration-300"></span>
+                                <span className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-300 group-hover:duration-200"></span>
+                                <span className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="bg-white rounded-full w-2 h-2 animate-ping"></span>
+                                </span>
+                            </Button>
+                        </Link>
+                    </div>
                 </AnimationContainer>
         </div>
     )
