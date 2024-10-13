@@ -362,7 +362,7 @@ const Homepage = async () => {
 
                 <AnimationContainer delay={0.1} className="flex flex-col items-center justify-center">
                     <LampDemo/>
-                    <div className="mt-6 flex justify-center">
+                 <div className="mt-16 flex justify-center items-start">
                         <Link href="/dashboard">
                             <Button className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 focus:ring-opacity-50 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:shadow-[0_0_25px_rgba(255,0,255,0.8)] backdrop-blur-sm backdrop-filter px-10 py-5 rounded-full focus:ring-4 focus:ring-pink-500 font-bold text-white transform transition-all duration-300 overflow-hidden hover:scale-110 hover:rotate-2 focus:outline-none group">
                                 <span className="relative z-10 flex justify-center items-center">
