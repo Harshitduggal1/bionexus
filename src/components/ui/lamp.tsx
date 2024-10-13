@@ -2,12 +2,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib";
-
+import { SparklesCore } from '@/components/ui/sparkles';
 import Particles from "./particles";
 
 export default function LampDemo() {
   return (
     <LampContainer>
+         <SparklesCore
+          background="transparent"
+          minSize={0.9}
+          maxSize={1}
+          particleDensity={1200}
+          className="w-full h-full"
+          particleColor="#ffffff"
+        />
   
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
@@ -17,7 +25,7 @@ export default function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="bg-clip-text bg-gradient-to-br from-blue-500 via-violet-500 to-pink-500 mt-8 py-4 font-medium text-4xl text-center text-transparent md:text-7xl tracking-tight"
+        className="bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mt-8 py-4 font-bold text-4xl text-center text-transparent md:text-7xl tracking-tight"
       >
         Revolutionizing Healthcare with 
         <br/>AI-Powered Research
@@ -30,13 +38,13 @@ export default function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="bg-clip-text bg-gradient-to-b from-slate-800 to-gray-300/30 mt-8 py-4 font-medium text-center text-transparent text-xl md:text-3xl leading-relaxed tracking-tight"
+        className="bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-indigo-500 mt-8 py-4 font-medium text-center text-transparent text-xl md:text-3xl leading-relaxed tracking-tight"
       >
         Accelerating Drug Discovery and Development
-     through Advanced AI Analytics and Machine Learning,
-   Revolutionizing Healthcare Research with
+        through Advanced AI Analytics and Machine Learning,
+        Revolutionizing Healthcare Research with
         <br/>Predictive Modeling and Data-Driven Insights
-      for Faster, More Efficient Clinical Trials
+        for Faster, More Efficient Clinical Trials
         and Personalized Treatment Strategies
       </motion.h1>
     </LampContainer>
